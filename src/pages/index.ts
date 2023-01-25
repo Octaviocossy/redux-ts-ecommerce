@@ -1,2 +1,2 @@
-export { default as Checkout } from './Checkout';
-export { default as Home } from './Home';
+export * from './checkout';
+export * from './home';

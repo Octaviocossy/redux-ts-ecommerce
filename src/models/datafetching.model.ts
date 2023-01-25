@@ -1,15 +1,15 @@
-export interface Err {
+export interface IErr {
   type: 'error';
   value: Error;
 }
 
-export interface Success<T> {
+export interface ISuccess<T> {
   type: 'success';
   value: T;
 }
 
-export interface Message {
+export interface IMessage {
   msg: string;
 }
 
-export type Result<T> = Success<T> | Err;
+export type IResult<T> = ISuccess<T> | IErr;

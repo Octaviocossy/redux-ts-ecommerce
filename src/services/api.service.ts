@@ -1,9 +1,9 @@
-import { Result } from '../models';
+import { IResult } from '../models';
 
 import Axios from './axios.service';
 
 const api = {
-  get: async <T>(url: string): Promise<Result<T>> => {
+  get: async <T>(url: string): Promise<IResult<T>> => {
     try {
       const req = await Axios.get(url);
 
@@ -18,7 +18,7 @@ const api = {
       return { type: 'error', value: error as Error };
     }
   },
-  post: async <T, R>(url: string, data: T): Promise<Result<R>> => {
+  post: async <T, R>(url: string, data: T): Promise<IResult<R>> => {
     try {
       const req = await Axios.post(url, data);
 
