@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-
+import { useFirstLoad } from '../../hooks';
 import { useProductActions } from '../../redux/actions';
 
 import { ProductList } from './components';
@@ -7,21 +6,13 @@ import { ProductList } from './components';
 const Home = () => {
   const { getProducts } = useProductActions();
 
-  const firstLoad = useRef(true);
-
-  useEffect(() => {
-    if (firstLoad.current) {
-      firstLoad.current = false;
-
-      return;
-    }
-
-    getProducts();
-  }, []);
+  useFirstLoad(getProducts);
 
   return (
-    <div className="flex flex-col">
-      <h1 className="m-auto mb-[2rem]">Pepe Loco - Ecommerce :D</h1>
+    <div className="flex flex-col mt-[2rem]">
+      <h1 className="m-auto mb-[2rem] text-3xl font-bold">
+        ovct - fakecommerce
+      </h1>
       <ProductList />
     </div>
   );
