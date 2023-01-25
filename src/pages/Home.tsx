@@ -1,14 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 
 import { IAppStore, IProductStore } from '../models';
-import { setProducts, clearError, setError } from '../redux';
-import { Axios } from '../services';
+import { useProductActions } from '../redux/actions';
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const productState = useSelector<IAppStore>(
+  const { getProducts } = useProductActions();
+  const { isLoading } = useSelector<IAppStore>(
     (store) => store.product
   ) as IProductStore;
 
@@ -21,19 +19,10 @@ const Home = () => {
       return;
     }
 
-    (async () => {
-      try {
-        const req = await Axios.get('/products');
-
-        dispatch(setProducts(req.data));
-        dispatch(clearError());
-      } catch (error) {
-        dispatch(setError('Error en el fetcheo de data'));
-      }
-    })();
+    getProducts();
   }, []);
 
-  if (productState.isLoading) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
 

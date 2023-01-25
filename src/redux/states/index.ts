@@ -1,2 +1,2 @@
-export * from './generalState';
-export * from './productState';
+export * from './general.state';
+export * from './product.state';
