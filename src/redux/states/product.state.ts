@@ -14,7 +14,10 @@ export const productState = createSlice({
     setProducts: (_, action) => {
       return { products: action.payload, isLoading: false };
     },
+    handleLoading: (state) => {
+      return { ...state, isLoading: true };
+    },
   },
 });
 
-export const { setProducts } = productState.actions;
+export const { setProducts, handleLoading } = productState.actions;
