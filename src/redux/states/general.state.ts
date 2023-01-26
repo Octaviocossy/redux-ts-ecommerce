@@ -13,7 +13,6 @@ export const generalState = createSlice({
     setError: (_, action) => {
       return { error: action.payload };
     },
-
     clearError: () => {
       return { error: null };
     },
