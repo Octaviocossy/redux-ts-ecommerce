@@ -10,9 +10,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col mt-[2rem]">
-      <h1 className="m-auto mb-[2rem] text-3xl font-bold">
-        ovct - fakecommerce
-      </h1>
+      <h1 className="m-auto mb-[2rem] text-3xl font-bold">fakecommerce</h1>
       <ProductList />
     </div>
   );

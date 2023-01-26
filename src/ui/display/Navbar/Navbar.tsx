@@ -16,8 +16,8 @@ const navItems: INavItem[] = [
 const Navbar = () => {
   return (
     <div className="border-b-2 absolute w-[100%]">
-      <div className="max-w-4xl m-auto flex px-2">
-        <h1 className="font-bold text-2xl py-[1.5rem] flex-1">Fakecommerce</h1>
+      <div className="max-w-7xl m-auto flex px-2">
+        <h1 className="font-bold text-2xl py-[1.5rem] flex-1">fakecommerce</h1>
         <ul className="flex flex-row justify-center items-center">
           {navItems.map((item) => (
             <NavItem key={item.path} item={item} />
