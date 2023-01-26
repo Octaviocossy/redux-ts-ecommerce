@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 const useFirstLoad = <T>(fn: () => T) => {
-  const fl = useRef(true);
+  const firstLoad = useRef(true);
   const result = useRef<T | null>(null);
 
   useEffect(() => {
-    if (fl.current) {
-      fl.current = false;
+    if (firstLoad.current) {
+      firstLoad.current = false;
 
       return;
     }

@@ -5,4 +5,5 @@ export interface IProduct {
   image: string;
   id: string;
   isBlock: boolean;
+  inCart?: boolean;
 }

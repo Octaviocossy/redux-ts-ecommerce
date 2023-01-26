@@ -1,6 +1,7 @@
 import { RiShoppingCartLine } from 'react-icons/ri';
 
 import { IProduct } from '../../../../models';
+import { useCartActions } from '../../../../redux/actions';
 import { Button } from '../../../../ui';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const ProductItem: React.FC<Props> = ({ data }) => {
+  const { setProductInCart } = useCartActions();
+
   return (
     <div className="m-2 p-4 shadow border w-full max-w-sm flex flex-col">
       <img className="w-[28rem] h-[14rem] rounded-lg" src={data.image} />
@@ -29,7 +32,7 @@ const ProductItem: React.FC<Props> = ({ data }) => {
           disabled={data.isBlock}
           disabledStyles={'bg-gray-200'}
           enableStyles={'bg-green-400 hover:bg-green-500 transition-colors'}
-          onClick={() => console.log(data.id)}
+          onClick={() => setProductInCart(data)}
         >
           <RiShoppingCartLine className="mr-2" />
           Add
