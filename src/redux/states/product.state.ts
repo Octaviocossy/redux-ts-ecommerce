@@ -11,13 +11,17 @@ export const productState = createSlice({
   name: 'product',
   initialState: ProductsEmptyState,
   reducers: {
-    setProducts: (_, action) => {
+    _setProducts: (_, action) => {
       return { products: action.payload, isLoading: false };
     },
-    handleLoading: (state) => {
+    _handleProducts: (state, action) => {
+      return { ...state, products: action.payload };
+    },
+    _handleLoading: (state) => {
       return { ...state, isLoading: true };
     },
   },
 });
 
-export const { setProducts, handleLoading } = productState.actions;
+export const { _setProducts, _handleLoading, _handleProducts } =
+  productState.actions;

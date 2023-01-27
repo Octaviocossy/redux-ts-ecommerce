@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const useFirstLoad = <T>(fn: () => T) => {
+const useFirstLoad = <T>(fn: (() => T) | null) => {
   const firstLoad = useRef(true);
   const result = useRef<T | null>(null);
 
@@ -11,8 +11,8 @@ const useFirstLoad = <T>(fn: () => T) => {
       return;
     }
 
-    result.current = fn();
-  }, [fn]);
+    result.current = fn && fn();
+  }, []);
 
   return { result };
 };

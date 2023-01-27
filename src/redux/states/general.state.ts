@@ -10,13 +10,13 @@ export const generalState = createSlice({
   name: 'general',
   initialState: GeneralEmptyState,
   reducers: {
-    setError: (_, action) => {
+    _setError: (_, action) => {
       return { error: action.payload };
     },
-    clearError: () => {
+    _clearError: () => {
       return { error: null };
     },
   },
 });
 
-export const { setError, clearError } = generalState.actions;
+export const { _setError, _clearError } = generalState.actions;

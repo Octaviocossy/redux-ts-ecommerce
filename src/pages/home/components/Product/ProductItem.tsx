@@ -9,10 +9,10 @@ interface Props {
 }
 
 const ProductItem: React.FC<Props> = ({ data }) => {
-  const { setProductInCart } = useCartActions();
+  const { handleProductInCart } = useCartActions();
 
   return (
-    <div className="m-2 p-4 shadow border w-full max-w-sm flex flex-col">
+    <div className="m-2 p-4 shadow border w-full max-w-sm flex flex-col rounded-md">
       <img className="w-[28rem] h-[14rem] rounded-lg" src={data.image} />
       <div className="pt-2 flex flex-col flex-1">
         <div className="py-2">
@@ -31,11 +31,15 @@ const ProductItem: React.FC<Props> = ({ data }) => {
         <Button
           disabled={data.isBlock}
           disabledStyles={'bg-gray-200'}
-          enableStyles={'bg-green-400 hover:bg-green-500 transition-colors'}
-          onClick={() => setProductInCart(data)}
+          enableStyles={`${
+            data.inCart
+              ? 'bg-red-400 hover:bg-red-500'
+              : 'bg-green-400 hover:bg-green-500'
+          } transition-colors`}
+          onClick={() => handleProductInCart(data)}
         >
           <RiShoppingCartLine className="mr-2" />
-          Add
+          {data.inCart ? 'Remove' : 'Add'}
         </Button>
       </div>
     </div>
