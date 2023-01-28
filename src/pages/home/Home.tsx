@@ -1,16 +1,11 @@
-import { useSelector } from 'react-redux';
-
 import { useFirstLoad } from '../../hooks';
-import { IAppStore, IProductStore } from '../../models';
 import { useProductActions } from '../../redux/actions';
+import { useProductProvider } from '../../redux/hooks';
 
 import { ProductList } from './components';
 
 const Home = () => {
-  const { products } = useSelector<IAppStore>(
-    (store) => store.product
-  ) as IProductStore;
-
+  const { products } = useProductProvider();
   const { getProducts } = useProductActions();
 
   useFirstLoad(!products[0] ? getProducts : null);

@@ -1,7 +1,6 @@
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import { IAppStore, IProduct, IProductStore } from '../../models';
+import { IProduct } from '../../models';
 import {
   _handleLoading,
   _handleProducts,
@@ -9,11 +8,10 @@ import {
   _setProducts,
 } from '../states';
 import { api } from '../../services';
+import { useProductProvider } from '../hooks';
 
 const useProductActions = () => {
-  const { products } = useSelector<IAppStore>(
-    (store) => store.product
-  ) as IProductStore;
+  const { products } = useProductProvider();
 
   const dispatch = useDispatch();
 

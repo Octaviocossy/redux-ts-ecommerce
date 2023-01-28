@@ -1,16 +1,14 @@
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import { IAppStore, ICartStore, IProduct } from '../../models';
+import { IProduct } from '../../models';
+import { useCartProvider } from '../hooks';
 import { _handleProductCart } from '../states';
 
 import useProductActions from './product.action';
 
 const useCartActions = () => {
   const { handleProductCartStatus } = useProductActions();
-  const { products } = useSelector<IAppStore>(
-    (store) => store.cart
-  ) as ICartStore;
+  const { products } = useCartProvider();
 
   const dispatch = useDispatch();
 

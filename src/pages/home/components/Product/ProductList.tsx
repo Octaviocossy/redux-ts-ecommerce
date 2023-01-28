@@ -1,14 +1,10 @@
-import { useSelector } from 'react-redux';
-
-import { IAppStore, IProductStore } from '../../../../models';
+import { useProductProvider } from '../../../../redux/hooks';
 import { SkeletonCard } from '../../../../ui';
 
 import ProductItem from './ProductItem';
 
 const ProductList = () => {
-  const { isLoading, products } = useSelector<IAppStore>(
-    (store) => store.product
-  ) as IProductStore;
+  const { products, isLoading } = useProductProvider();
 
   if (isLoading) {
     return (
