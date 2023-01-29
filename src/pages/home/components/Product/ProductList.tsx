@@ -1,3 +1,4 @@
+import usePagination from '../../../../hooks/usePagination';
 import { useProductSelector } from '../../../../redux/selectors';
 import { SkeletonCard } from '../../../../ui';
 
@@ -5,6 +6,10 @@ import ProductItem from './ProductItem';
 
 const ProductList = () => {
   const { products, isLoading } = useProductSelector();
+  const { Pagination, page } = usePagination({
+    itemList: products,
+    itemsPerPage: 6,
+  });
 
   if (isLoading) {
     return (
@@ -21,9 +26,10 @@ const ProductList = () => {
 
   return (
     <div className="grid grid-cols-3 justify-items-center">
-      {products.map((product) => (
+      {page.map((product) => (
         <ProductItem key={product.id} data={product} />
       ))}
+      <Pagination />
     </div>
   );
 };
