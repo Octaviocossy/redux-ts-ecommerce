@@ -8,10 +8,10 @@ import {
   _setProducts,
 } from '../states';
 import { api } from '../../services';
-import { useProductProvider } from '../hooks';
+import { useProductSelector } from '../selectors';
 
 const useProductActions = () => {
-  const { products } = useProductProvider();
+  const { products } = useProductSelector();
 
   const dispatch = useDispatch();
 

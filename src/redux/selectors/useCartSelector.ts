@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 
 import { IAppStore, ICartStore } from '../../models';
 
-const useCartProvider = () => {
+const useCartSelector = () => {
   return useSelector<IAppStore>((store) => store.cart) as ICartStore;
 };
 
-export default useCartProvider;
+export default useCartSelector;

@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 
 import { IProduct } from '../../models';
-import { useCartProvider } from '../hooks';
+import { useCartSelector } from '../selectors';
 import { _handleProductCart } from '../states';
 
 import useProductActions from './product.action';
 
 const useCartActions = () => {
   const { handleProductCartStatus } = useProductActions();
-  const { products } = useCartProvider();
+  const { products } = useCartSelector();
 
   const dispatch = useDispatch();
 

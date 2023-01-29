@@ -1,11 +1,11 @@
 import { useFirstLoad } from '../../hooks';
 import { useProductActions } from '../../redux/actions';
-import { useProductProvider } from '../../redux/hooks';
+import { useProductSelector } from '../../redux/selectors';
 
 import { ProductList } from './components';
 
 const Home = () => {
-  const { products } = useProductProvider();
+  const { products } = useProductSelector();
   const { getProducts } = useProductActions();
 
   useFirstLoad(!products[0] ? getProducts : null);

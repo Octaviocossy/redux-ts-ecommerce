@@ -1,10 +1,10 @@
-import { useProductProvider } from '../../../../redux/hooks';
+import { useProductSelector } from '../../../../redux/selectors';
 import { SkeletonCard } from '../../../../ui';
 
 import ProductItem from './ProductItem';
 
 const ProductList = () => {
-  const { products, isLoading } = useProductProvider();
+  const { products, isLoading } = useProductSelector();
 
   if (isLoading) {
     return (
