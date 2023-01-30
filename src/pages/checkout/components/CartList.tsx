@@ -2,7 +2,7 @@ import { useCartSelector } from '../../../redux/selectors';
 
 import CartItem from './CartItem';
 
-const ProductList = () => {
+const CartList = () => {
   const { products } = useCartSelector();
 
   return (
@@ -14,4 +14,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default CartList;

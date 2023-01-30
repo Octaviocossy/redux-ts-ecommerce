@@ -8,7 +8,7 @@ interface Props {
   cartProduct: ICartProduct;
 }
 
-const ProductItem: React.FC<Props> = ({ cartProduct }) => {
+const CartItem: React.FC<Props> = ({ cartProduct }) => {
   const { handleProductInCart, handleProductCount } = useCartActions();
 
   return (
@@ -57,4 +57,4 @@ const ProductItem: React.FC<Props> = ({ cartProduct }) => {
   );
 };
 
-export default ProductItem;
+export default CartItem;

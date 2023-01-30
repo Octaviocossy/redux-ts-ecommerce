@@ -28,7 +28,6 @@ const useCartActions = () => {
       dispatch(
         _handleProductCart([
           ...products,
-
           {
             product: { ...product, inCart: true } as IProduct,
             count: 1,
