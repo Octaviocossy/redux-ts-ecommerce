@@ -6,7 +6,7 @@ import { INavItem } from './navbar.model';
 import NavItem from './NavItem';
 
 const navItems: INavItem[] = [
-  { name: 'Home', path: Routes.HOME },
+  { name: 'Home', path: `${Routes.HOME}1` },
   {
     path: Routes.CHECKOUT,
     icon: <RiShoppingCartLine className="w-[1.1rem] h-[1.1rem]" />,
