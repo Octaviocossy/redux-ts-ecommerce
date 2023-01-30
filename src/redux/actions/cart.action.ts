@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { IProduct } from '../../models';
+import { ICartProduct, IProduct } from '../../models';
 import { useCartSelector } from '../selectors';
 import { _handleProductCart } from '../states';
 
@@ -31,7 +31,7 @@ const useCartActions = () => {
 
           {
             product: { ...product, inCart: true } as IProduct,
-            count: 0,
+            count: 1,
           },
         ])
       );
@@ -46,7 +46,17 @@ const useCartActions = () => {
     }
   };
 
-  return { handleProductInCart };
+  const handleProductCount = (product: ICartProduct) => {
+    dispatch(
+      _handleProductCart(
+        products.map((item) =>
+          item.product.id === product.product.id ? product : item
+        )
+      )
+    );
+  };
+
+  return { handleProductInCart, handleProductCount };
 };
 
 export default useCartActions;
