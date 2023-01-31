@@ -4,7 +4,7 @@ import { useProductSelector } from '../../redux/selectors';
 
 import { ProductList } from './components';
 
-const Home = () => {
+const Products = () => {
   const { products } = useProductSelector();
   const { getProducts } = useProductActions();
 
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Products;

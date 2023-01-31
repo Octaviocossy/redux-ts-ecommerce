@@ -1,15 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { Routes } from '../models';
-import { Checkout, Home } from '../pages';
+import { Checkout, Products } from '../pages';
 import { Layout } from '../ui';
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: Routes.HOME, element: <Home /> },
-      { path: `${Routes.HOME}/:page`, element: <Home /> },
+      { path: Routes.HOME, element: <Navigate to={`${Routes.PRODUCTS}/1`} /> },
+      { path: `${Routes.PRODUCTS}/:page`, element: <Products /> },
       { path: Routes.CHECKOUT, element: <Checkout /> },
     ],
   },
