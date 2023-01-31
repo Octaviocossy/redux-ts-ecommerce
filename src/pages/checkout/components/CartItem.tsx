@@ -39,7 +39,7 @@ const CartItem: React.FC<Props> = ({ cartProduct }) => {
         >
           -
         </Button>
-        <div className="bg-gray-100 w-8 mx-4 rounded-md py-1 flex">
+        <div className="bg-gray-100 w-8 mx-4 rounded-md py-1 flex shadow-md">
           <p className=" font-semibold m-auto">{count}</p>
         </div>
         <Button
