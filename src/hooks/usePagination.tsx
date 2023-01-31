@@ -28,7 +28,7 @@ const usePagination = <T extends Object>({
 
     setPage([...itemList].splice(firstIndex, itemsPerPage));
     setCurrentPage(nextPage);
-    navigate(`${Routes.HOME}${nextPage + 1}`);
+    navigate(`${Routes.PRODUCTS}/${nextPage + 1}`);
   };
 
   const handlePreviousPage = () => {
@@ -40,7 +40,7 @@ const usePagination = <T extends Object>({
 
     setPage([...itemList].splice(firstIndex, itemsPerPage));
     setCurrentPage(prevPage);
-    navigate(`${Routes.HOME}${prevPage + 1}`);
+    navigate(`${Routes.PRODUCTS}/${prevPage + 1}`);
   };
 
   useEffect(() => {

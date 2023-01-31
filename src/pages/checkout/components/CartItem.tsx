@@ -10,38 +10,42 @@ interface Props {
 
 const CartItem: React.FC<Props> = ({ cartProduct }) => {
   const { handleProductInCart, handleProductCount } = useCartActions();
+  const { product, count } = cartProduct;
 
   return (
-    <div
-      key={cartProduct.product.id}
-      className="my-6 flex flex-row py-2 items-center"
-    >
+    <div key={product.id} className="my-6 flex flex-row py-2 items-center">
       <div className="flex-1 flex flex-row items-center">
         <img
           className={'h-[7rem] rounded-lg mr-2 shadow-md'}
-          src={cartProduct.product.image}
+          src={product.image}
         />
         <div className="ml-3">
-          <h1 className="font-bold text-xl">{cartProduct.product.name}</h1>
-          <p className="max-w-lg text-lg">{cartProduct.product.description}</p>
+          <h1 className="font-bold text-xl">{product.name}</h1>
+          <p className="max-w-lg text-lg">{product.description}</p>
         </div>
       </div>
       <div className="mr-4 flex items-center">
+        <p className="font-semibold mr-4 text-green-500 text-lg">
+          ${product.price}
+        </p>
         <Button
-          disabled={cartProduct.count === 1}
+          disabled={count === 1}
           disabledStyles={'bg-green-200'}
-          styles={'bg-green-400 px-[0.8rem] py-1 rounded-md'}
+          enableStyles={'bg-green-400 '}
+          styles={'px-[0.8rem] py-1 rounded-md'}
           onClick={() =>
-            handleProductCount({ ...cartProduct, count: cartProduct.count - 1 })
+            handleProductCount({ ...cartProduct, count: count - 1 })
           }
         >
           -
         </Button>
-        <p className="mx-4 font-semibold">{cartProduct.count}</p>
+        <div className="bg-gray-100 w-8 mx-4 rounded-md py-1 flex">
+          <p className=" font-semibold m-auto">{count}</p>
+        </div>
         <Button
-          styles={'bg-green-400 px-[0.7rem]  py-1 rounded-md'}
+          styles={'bg-green-400 px-[0.7rem] py-1 rounded-md'}
           onClick={() =>
-            handleProductCount({ ...cartProduct, count: cartProduct.count + 1 })
+            handleProductCount({ ...cartProduct, count: count + 1 })
           }
         >
           +
@@ -49,7 +53,7 @@ const CartItem: React.FC<Props> = ({ cartProduct }) => {
       </div>
       <Button
         styles={'bg-red-400 px-2 rounded-md'}
-        onClick={() => handleProductInCart(cartProduct.product)}
+        onClick={() => handleProductInCart(product)}
       >
         <BsTrash />
       </Button>
